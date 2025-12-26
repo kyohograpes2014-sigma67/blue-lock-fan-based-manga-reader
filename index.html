@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blue Lock Fan App – Michael Kaiser</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #020617, #020617);
+  color: white;
+}
+
+header {
+  background: radial-gradient(circle at top, #003cff, #020617 70%);
+  padding: 40px 20px;
+}
+
+.hero {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 30px;
+}
+
+.hero img {
+  width: 260px;
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(0,60,255,0.6);
+}
+
+.hero-text h1 {
+  font-size: 42px;
+  margin: 0;
+}
+
+.hero-text p {
+  color: #b3c7ff;
+  max-width: 500px;
+}
+
+.badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 14px;
+  background: #003cff;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+section {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+section h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  border-left: 5px solid #003cff;
+  padding-left: 10px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #0b1025;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card p {
+  color: #9aa6ff;
+  font-size: 14px;
+}
+
+.card button {
+  margin-top: 15px;
+  background: #003cff;
+  border: none;
+  padding: 10px 16px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background: #002bb8;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #6b74b8;
+  font-size: 13px;
+  border-top: 1px solid #0b1025;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<header>
+  <div class="hero">
+    <img src="https://via.placeholder.com/260x360?text=Michael+Kaiser" alt="Michael Kaiser">
+    <div class="hero-text">
+      <h1>Michael Kaiser</h1>
+      <p>
+        The emperor of Bastard München.  
+        A genius striker with overwhelming ego and precision.
+      </p>
+      <div class="badge">Kaiser Impact</div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT YOU CAN DO -->
+<section>
+  <h2>What You Can Do</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>📖 Read Manga</h3>
+      <p>Read all volumes of the Blue Lock manga.</p>
+      <button onclick="actionAlert('Manga Reader')">Open Reader</button>
+    </div>
+
+    <div class="card">
+      <h3>🎥 Watch Anime</h3>
+      <p>Watch Blue Lock Season 1 and Season 2 episodes.</p>
+      <button onclick="actionAlert('Anime Player')">Watch Episodes</button>
+    </div>
+
+    <div class="card">
+      <h3>👤 Character Profiles</h3>
+      <p>Explore Blue Lock characters, stats, and abilities.</p>
+      <button onclick="actionAlert('Character Profiles')">View Characters</button>
+    </div>
+
+    <div class="card">
+      <h3>🔥 Blue Lock Philosophy</h3>
+      <p>Ego Jinpachi’s ideology and iconic quotes.</p>
+      <button onclick="actionAlert('Philosophy Section')">Explore Ego</button>
+    </div>
+  </div>
+</section>
+
+<!-- MANGA VOLUMES -->
+<section>
+  <h2>Manga Volumes (1–37)</h2>
+  <div class="cards" id="volumeList"></div>
+</section>
+
+<!-- ANIME SEASONS -->
+<section>
+  <h2>Anime Seasons</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Season 1</h3>
+      <p>The beginning of the Blue Lock project.</p>
+      <button onclick="actionAlert('Season 1 Episodes')">View Episodes</button>
+    </div>
+
+    <div class="card">
+      <h3>Season 2</h3>
+      <p>Neo Egoist League and Kaiser’s dominance.</p>
+      <button onclick="actionAlert('Season 2 Episodes')">View Episodes</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Fan-made Blue Lock app • No copyrighted content included
+</footer>
+
+<script>
+function actionAlert(feature) {
+  alert(feature + " coming soon!");
+}
+
+/* Generate Volumes 1–37 */
+const volumeList = document.getElementById
