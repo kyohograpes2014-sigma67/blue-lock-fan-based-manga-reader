@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Blue Lock Characters – Stats</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #020617;
+  color: white;
+}
+
+header {
+  background: #003cff;
+  padding: 20px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.back {
+  margin: 20px;
+}
+
+.back button {
+  background: #003cff;
+  border: none;
+  padding: 10px 16px;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #0b1025;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.position {
+  color: #9aa6ff;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.stat {
+  margin-bottom: 10px;
+}
+
+.stat label {
+  font-size: 13px;
+  color: #c7d2ff;
+}
+
+.bar {
+  background: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 10px;
+  margin-top: 4px;
+}
+
+.fill {
+  height: 100%;
+  background: #003cff;
+}
+</style>
+</head>
+
+<body>
+
+<header>Blue Lock Characters – Performance Stats</header>
+
+<div class="back">
+  <button onclick="location.href='index.html'">⬅ Back to Home</button>
+</div>
+
+<div class="container" id="characters"></div>
+
+<script>
+const players = [
+  {
+    name: "Yoichi Isagi",
+    position: "Forward",
+    stats: { Shooting: 78, Vision: 95, Speed: 76, Dribbling: 70, Defense: 60 }
+  },
+  {
+    name: "Michael Kaiser",
+    position: "Forward (Bastard München)",
+    stats: { Shooting: 96, Vision: 90, Speed: 88, Dribbling: 85, Defense: 70 }
+  },
+  {
+    name: "Rin Itoshi",
+    position: "Forward",
+    stats: { Shooting: 92, Vision: 88, Speed: 84, Dribbling: 86, Defense: 72 }
+  },
+  {
+    name: "Meguru Bachira",
+    position: "Forward",
+    stats: { Shooting: 80, Vision: 78, Speed: 90, Dribbling: 96, Defense: 60 }
+  },
+  {
+    name: "Seishiro Nagi",
+    position: "Forward",
+    stats: { Shooting: 88, Vision: 82, Speed: 74, Dribbling: 92, Defense: 65 }
+  },
+  {
+    name: "Shoei Barou",
+    position: "Forward",
+    stats: { Shooting: 94, Vision: 70, Speed: 82, Dribbling: 78, Defense: 68 }
+  }
+];
+
+const container = document.getElementById("characters");
+
+players.forEach(player => {
+  const card = document.createElement("div");
+  card.className = "card";
+
+  let statsHTML = "";
+  for (let stat in player.stats) {
+    statsHTML += `
+      <div class="stat">
+        <label>${stat}: ${player.stats[stat]}</label>
+        <div class="bar">
+          <div class="fill" style="width:${player.stats[stat]}%"></div>
+        </div>
+      </div>
+    `;
+  }
+
+  card.innerHTML = `
+    <h2>${player.name}</h2>
+    <div class="position">${player.position}</div>
+    ${statsHTML}
+  `;
+
+  container.appendChild(card);
+});
+</script>
+
+</body>
+</html>
