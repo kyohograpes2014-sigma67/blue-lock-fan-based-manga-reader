@@ -35,11 +35,11 @@ header {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
   padding: 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
@@ -57,7 +57,7 @@ header {
 .position {
   color: #9aa6ff;
   font-size: 14px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .stat {
@@ -67,6 +67,8 @@ header {
 .stat label {
   font-size: 13px;
   color: #c7d2ff;
+  display: flex;
+  justify-content: space-between;
 }
 
 .bar {
@@ -79,7 +81,7 @@ header {
 
 .fill {
   height: 100%;
-  background: #003cff;
+  background: linear-gradient(90deg, #003cff, #00b3ff);
 }
 </style>
 </head>
@@ -97,34 +99,69 @@ header {
 <script>
 const players = [
   {
-    name: "Yoichi Isagi",
-    position: "Forward",
-    stats: { Shooting: 78, Vision: 95, Speed: 76, Dribbling: 70, Defense: 60 }
+    name: "Michael Kaiser",
+    position: "Forward • Bastard München",
+    stats: { Shooting: 96, Finishing: 98, Vision: 90, Speed: 88, Dribbling: 85, Passing: 82, Physical: 86, Defense: 70, Ego: 99 }
   },
   {
-    name: "Michael Kaiser",
-    position: "Forward (Bastard München)",
-    stats: { Shooting: 96, Vision: 90, Speed: 88, Dribbling: 85, Defense: 70 }
+    name: "Yoichi Isagi",
+    position: "Forward",
+    stats: { Shooting: 82, Finishing: 80, Vision: 97, Speed: 78, Dribbling: 72, Passing: 88, Physical: 70, Defense: 65, Ego: 92 }
   },
   {
     name: "Rin Itoshi",
     position: "Forward",
-    stats: { Shooting: 92, Vision: 88, Speed: 84, Dribbling: 86, Defense: 72 }
+    stats: { Shooting: 92, Finishing: 90, Vision: 88, Speed: 84, Dribbling: 86, Passing: 80, Physical: 82, Defense: 72, Ego: 95 }
   },
   {
     name: "Meguru Bachira",
     position: "Forward",
-    stats: { Shooting: 80, Vision: 78, Speed: 90, Dribbling: 96, Defense: 60 }
+    stats: { Shooting: 80, Finishing: 78, Vision: 80, Speed: 92, Dribbling: 97, Passing: 82, Physical: 74, Defense: 60, Ego: 90 }
   },
   {
     name: "Seishiro Nagi",
     position: "Forward",
-    stats: { Shooting: 88, Vision: 82, Speed: 74, Dribbling: 92, Defense: 65 }
+    stats: { Shooting: 88, Finishing: 92, Vision: 82, Speed: 74, Dribbling: 94, Passing: 76, Physical: 78, Defense: 65, Ego: 88 }
   },
   {
     name: "Shoei Barou",
     position: "Forward",
-    stats: { Shooting: 94, Vision: 70, Speed: 82, Dribbling: 78, Defense: 68 }
+    stats: { Shooting: 95, Finishing: 94, Vision: 72, Speed: 82, Dribbling: 78, Passing: 68, Physical: 92, Defense: 70, Ego: 96 }
+  },
+  {
+    name: "Hyoma Chigiri",
+    position: "Winger",
+    stats: { Shooting: 78, Finishing: 76, Vision: 74, Speed: 99, Dribbling: 85, Passing: 72, Physical: 70, Defense: 60, Ego: 85 }
+  },
+  {
+    name: "Reo Mikage",
+    position: "Midfielder",
+    stats: { Shooting: 76, Finishing: 74, Vision: 86, Speed: 80, Dribbling: 82, Passing: 92, Physical: 78, Defense: 75, Ego: 83 }
+  },
+  {
+    name: "Kenyu Yukimiya",
+    position: "Forward",
+    stats: { Shooting: 86, Finishing: 84, Vision: 80, Speed: 88, Dribbling: 90, Passing: 75, Physical: 76, Defense: 65, Ego: 89 }
+  },
+  {
+    name: "Rensuke Kunigami",
+    position: "Forward",
+    stats: { Shooting: 90, Finishing: 88, Vision: 70, Speed: 78, Dribbling: 72, Passing: 68, Physical: 95, Defense: 75, Ego: 90 }
+  },
+  {
+    name: "Tabito Karasu",
+    position: "Midfielder",
+    stats: { Shooting: 74, Finishing: 72, Vision: 90, Speed: 80, Dribbling: 82, Passing: 88, Physical: 78, Defense: 85, Ego: 86 }
+  },
+  {
+    name: "Eita Otoya",
+    position: "Winger",
+    stats: { Shooting: 76, Finishing: 74, Vision: 78, Speed: 94, Dribbling: 88, Passing: 70, Physical: 72, Defense: 60, Ego: 84 }
+  },
+  {
+    name: "Ryusei Shidou",
+    position: "Forward",
+    stats: { Shooting: 97, Finishing: 96, Vision: 78, Speed: 90, Dribbling: 84, Passing: 70, Physical: 94, Defense: 65, Ego: 100 }
   }
 ];
 
@@ -138,10 +175,8 @@ players.forEach(player => {
   for (let stat in player.stats) {
     statsHTML += `
       <div class="stat">
-        <label>${stat}: ${player.stats[stat]}</label>
-        <div class="bar">
-          <div class="fill" style="width:${player.stats[stat]}%"></div>
-        </div>
+        <label><span>${stat}</span><span>${player.stats[stat]}</span></label>
+        <div class="bar"><div class="fill" style="width:${player.stats[stat]}%"></div></div>
       </div>
     `;
   }
