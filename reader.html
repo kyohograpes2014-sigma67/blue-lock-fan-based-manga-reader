@@ -2,19 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Blue Lock Manga Reader</title>
+<title>Blue Lock Manga Summary (Volumes 1–37)</title>
 
 <style>
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background: #020617;
-  color: white;
+  color: #e5e7ff;
+  line-height: 1.7;
 }
 
 header {
-  background: #003cff;
-  padding: 20px;
+  background: linear-gradient(90deg, #003cff, #00b3ff);
+  padding: 22px;
   text-align: center;
   font-size: 26px;
   font-weight: bold;
@@ -27,235 +28,119 @@ header {
 .back button {
   background: #003cff;
   border: none;
+  padding: 10px 18px;
   color: white;
-  padding: 10px 16px;
-  border-radius: 10px;
   font-weight: bold;
+  border-radius: 12px;
   cursor: pointer;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: auto;
-  padding: 20px;
+  padding: 30px;
 }
 
 .volume {
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 20px;
   background: #0b1025;
-  padding: 20px;
-  border-radius: 16px;
-  margin-bottom: 25px;
+  padding: 25px;
+  margin-bottom: 20px;
+  border-radius: 18px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
 }
 
-.volume img {
-  width: 200px;
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,60,255,0.4);
-}
-
-.volume h2 {
+.volume h3 {
+  color: #9aa6ff;
   margin-top: 0;
-}
-
-.volume p {
-  color: #c7d2ff;
-  line-height: 1.6;
-  font-size: 14px;
-}
-
-@media (max-width: 700px) {
-  .volume {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .volume img {
-    margin: auto;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<header>Blue Lock Manga Volumes (1–37)</header>
+<header>Blue Lock Manga — Volume Summaries (1–37)</header>
 
 <div class="back">
   <button onclick="location.href='index.html'">⬅ Back to Home</button>
 </div>
 
-<div class="container" id="volumes"></div>
+<div class="container">
 
-<script>
-const volumeData = [
-  {
-    vol: 1,
-    desc: "Yoichi Isagi’s dreams of becoming Japan’s greatest striker are shattered after a crushing loss. Soon after, he is invited to the Blue Lock Project, a radical program designed to create the world’s most egoistic striker. Inside the facility, Isagi is thrown into brutal elimination matches where hesitation means failure."
-  },
-  {
-    vol: 2,
-    desc: "As the first selection continues, Isagi struggles to understand what it truly means to play for himself. Bachira reveals his love for instinctive football, while teammates clash over ego, survival, and ambition in a ruthless environment."
-  },
-  {
-    vol: 3,
-    desc: "Isagi begins to awaken his spatial awareness, learning to read the field like a predator. The gap between talent and mentality becomes clear as rival strikers emerge with overwhelming confidence."
-  },
-  {
-    vol: 4,
-    desc: "The final match of the first selection pushes Isagi to the brink. Team Z must overcome their weaknesses or be erased from Blue Lock forever. Ego’s philosophy begins to take hold."
-  },
-  {
-    vol: 5,
-    desc: "The Second Selection begins. Players are separated and forced into intense 1v1 and 2v2 battles. Only those who can steal another’s weapon will survive."
-  },
-  {
-    vol: 6,
-    desc: "Isagi partners with Nagi, whose raw talent shocks everyone. The meaning of adaptability and evolution becomes central to survival."
-  },
-  {
-    vol: 7,
-    desc: "Rin Itoshi appears as a terrifying genius striker. His presence overwhelms the competition, pushing Isagi to reconsider his own limits."
-  },
-  {
-    vol: 8,
-    desc: "The gap between Isagi and Rin becomes painfully clear. Isagi begins reconstructing his style, realizing that copying others will never make him the best."
-  },
-  {
-    vol: 9,
-    desc: "The Second Selection reaches its climax. Players face defeat, despair, and rebirth as Blue Lock claims more victims."
-  },
-  {
-    vol: 10,
-    desc: "The Third Selection begins. Survivors must now prove themselves worthy of representing Japan on the global stage."
-  },
-  {
-    vol: 11,
-    desc: "Top strikers face off in high-level matches. Ego evaluates who has the mentality to survive international competition."
-  },
-  {
-    vol: 12,
-    desc: "Isagi’s vision sharpens as he learns how to control the tempo of a match, even among elite players."
-  },
-  {
-    vol: 13,
-    desc: "The U-20 Japan match looms. The Blue Lock team prepares to challenge the nation’s expectations."
-  },
-  {
-    vol: 14,
-    desc: "The match against Japan’s U-20 team begins. Every player stakes their future on this one game."
-  },
-  {
-    vol: 15,
-    desc: "Clashing ideals explode on the field. Ego versus tradition. Blue Lock versus Japan."
-  },
-  {
-    vol: 16,
-    desc: "The intensity reaches unprecedented levels. Individual brilliance and teamwork collide."
-  },
-  {
-    vol: 17,
-    desc: "The match’s conclusion changes Japanese football forever. Heroes and failures are born."
-  },
-  {
-    vol: 18,
-    desc: "The Neo Egoist League begins. Players travel overseas to compete with world-class strikers."
-  },
-  {
-    vol: 19,
-    desc: "Isagi joins Bastard München and meets Michael Kaiser, the embodiment of dominance."
-  },
-  {
-    vol: 20,
-    desc: "Kaiser’s overwhelming presence forces Isagi into a battle of intellect and ego."
-  },
-  {
-    vol: 21,
-    desc: "Matches intensify as philosophies clash between teams and players."
-  },
-  {
-    vol: 22,
-    desc: "Isagi begins forging his own weapon to challenge Kaiser directly."
-  },
-  {
-    vol: 23,
-    desc: "The gap between world-class and potential greatness becomes painfully clear."
-  },
-  {
-    vol: 24,
-    desc: "Kaiser asserts himself as emperor of the field, leaving devastation in his wake."
-  },
-  {
-    vol: 25,
-    desc: "Isagi evolves again, refusing to be overshadowed."
-  },
-  {
-    vol: 26,
-    desc: "Team strategies deepen. Football becomes chess at full speed."
-  },
-  {
-    vol: 27,
-    desc: "The battle of egos reaches a new level of brutality."
-  },
-  {
-    vol: 28,
-    desc: "Kaiser and Isagi’s rivalry defines the Neo Egoist League."
-  },
-  {
-    vol: 29,
-    desc: "Players confront the reality of global competition."
-  },
-  {
-    vol: 30,
-    desc: "New stars emerge while others fade away."
-  },
-  {
-    vol: 31,
-    desc: "Isagi’s vision begins to rival true geniuses."
-  },
-  {
-    vol: 32,
-    desc: "The line between prodigy and monster blurs."
-  },
-  {
-    vol: 33,
-    desc: "The world watches as Blue Lock reshapes football."
-  },
-  {
-    vol: 34,
-    desc: "Kaiser’s dominance is challenged like never before."
-  },
-  {
-    vol: 35,
-    desc: "Every goal carries the weight of a future."
-  },
-  {
-    vol: 36,
-    desc: "Isagi steps closer to becoming a true striker."
-  },
-  {
-    vol: 37,
-    desc: "The Neo Egoist League reaches a turning point that will decide Japan’s destiny."
-  }
-];
+<div class="volume"><h3>Volume 1</h3><p>Yoichi Isagi loses a crucial match due to hesitating to take a shot, leading him to doubt his instincts as a striker. He is invited to the Blue Lock project, a radical training program designed to create Japan’s ultimate egoist striker, where teamwork is immediately challenged.</p></div>
 
-const container = document.getElementById("volumes");
+<div class="volume"><h3>Volume 2</h3><p>Isagi enters Blue Lock and faces his first survival game, learning that elimination is permanent. He begins to understand Ego Jinpachi’s philosophy that a striker must prioritize scoring above all else.</p></div>
 
-volumeData.forEach(v => {
-  const div = document.createElement("div");
-  div.className = "volume";
-  div.innerHTML = `
-    <img src="https://via.placeholder.com/200x300?text=Volume+${v.vol}" alt="Volume ${v.vol}">
-    <div>
-      <h2>Volume ${v.vol}</h2>
-      <p>${v.desc}</p>
-    </div>
-  `;
-  container.appendChild(div);
-});
-</script>
+<div class="volume"><h3>Volume 3</h3><p>The first selection continues as Team Z struggles, forcing Isagi to awaken his spatial awareness and realize his ability to read the field can become his weapon.</p></div>
+
+<div class="volume"><h3>Volume 4</h3><p>Isagi clashes with Barou’s overwhelming ego and begins learning that adapting to others’ strengths is key to survival within Blue Lock’s ruthless environment.</p></div>
+
+<div class="volume"><h3>Volume 5</h3><p>Team Z’s internal conflicts reach a peak, but Isagi steps up as a decisive force, accepting responsibility and proving that ego and teamwork can coexist when centered on winning.</p></div>
+
+<div class="volume"><h3>Volume 6</h3><p>The First Selection concludes, showing Isagi’s growth as a striker who can seize decisive moments, earning his place to advance deeper into Blue Lock.</p></div>
+
+<div class="volume"><h3>Volume 7</h3><p>The Second Selection begins, throwing players into intense 3v3 matches that emphasize stealing others’ abilities and evolving through direct competition.</p></div>
+
+<div class="volume"><h3>Volume 8</h3><p>Isagi teams up with Nagi and faces increasingly skilled opponents, learning that evolution requires abandoning comfort and embracing pressure.</p></div>
+
+<div class="volume"><h3>Volume 9</h3><p>Rin Itoshi is introduced as Blue Lock’s top player, setting up a powerful rivalry that challenges Isagi’s understanding of what it means to be a true striker.</p></div>
+
+<div class="volume"><h3>Volume 10</h3><p>Isagi begins chasing Rin’s level, sharpening his awareness and adaptability while realizing that true strength comes from dominating the flow of the game.</p></div>
+
+<div class="volume"><h3>Volume 11</h3><p>The Second Selection reaches its climax as players are pushed to their limits, with Isagi proving he can survive against overwhelming talent.</p></div>
+
+<div class="volume"><h3>Volume 12</h3><p>Preparations begin for the Blue Lock Eleven, shifting the story toward international recognition and professional-level competition.</p></div>
+
+<div class="volume"><h3>Volume 13</h3><p>The Blue Lock team faces Japan’s U-20 national team, symbolizing a clash between traditional football and Ego Jinpachi’s radical ideals.</p></div>
+
+<div class="volume"><h3>Volume 14</h3><p>The U-20 match intensifies, showcasing incredible plays and forcing each striker to prove their worth on a national stage.</p></div>
+
+<div class="volume"><h3>Volume 15</h3><p>Isagi makes a decisive impact in the U-20 match, marking a turning point that validates the Blue Lock project.</p></div>
+
+<div class="volume"><h3>Volume 16</h3><p>The aftermath of the U-20 victory brings fame and scrutiny, as Blue Lock players are recognized as Japan’s future.</p></div>
+
+<div class="volume"><h3>Volume 17</h3><p>The Neo Egoist League begins, introducing European clubs and global football philosophies.</p></div>
+
+<div class="volume"><h3>Volume 18</h3><p>Isagi joins Bastard München and meets Michael Kaiser, whose overwhelming skill and ego set a new benchmark.</p></div>
+
+<div class="volume"><h3>Volume 19</h3><p>Competition within Bastard München becomes fierce, forcing Isagi to evolve under professional-level pressure.</p></div>
+
+<div class="volume"><h3>Volume 20</h3><p>Isagi begins redefining his playstyle, focusing on becoming the central force that decides matches.</p></div>
+
+<div class="volume"><h3>Volume 21</h3><p>Rivalries intensify as players from different clubs clash, revealing contrasting philosophies of football.</p></div>
+
+<div class="volume"><h3>Volume 22</h3><p>Isagi challenges Kaiser directly, attempting to surpass him by controlling the field through intelligence.</p></div>
+
+<div class="volume"><h3>Volume 23</h3><p>The concept of “meta vision” emerges, pushing Isagi’s spatial awareness to elite levels.</p></div>
+
+<div class="volume"><h3>Volume 24</h3><p>Matches become increasingly tactical as players evolve rapidly to keep up with international standards.</p></div>
+
+<div class="volume"><h3>Volume 25</h3><p>Isagi embraces his role as a game-changer, proving he can stand among the world’s best young strikers.</p></div>
+
+<div class="volume"><h3>Volume 26</h3><p>Psychological battles intensify, showing that ego is as important as physical skill.</p></div>
+
+<div class="volume"><h3>Volume 27</h3><p>Players are pushed toward breaking points as global expectations weigh heavily on their performances.</p></div>
+
+<div class="volume"><h3>Volume 28</h3><p>Isagi continues refining his vision-based playstyle, inching closer to true dominance.</p></div>
+
+<div class="volume"><h3>Volume 29</h3><p>New strategies and weapons emerge, highlighting the constant evolution required to survive.</p></div>
+
+<div class="volume"><h3>Volume 30</h3><p>The Neo Egoist League escalates with high-stakes matches that shape players’ futures.</p></div>
+
+<div class="volume"><h3>Volume 31</h3><p>Isagi’s confidence grows as he begins asserting himself as the protagonist of matches.</p></div>
+
+<div class="volume"><h3>Volume 32</h3><p>Rivalries reach a boiling point, pushing everyone to surpass their previous limits.</p></div>
+
+<div class="volume"><h3>Volume 33</h3><p>The competition narrows, emphasizing survival among only the strongest egos.</p></div>
+
+<div class="volume"><h3>Volume 34</h3><p>Isagi refines his decision-making, proving he can control outcomes with precision.</p></div>
+
+<div class="volume"><h3>Volume 35</h3><p>Global recognition intensifies, with scouts closely watching Blue Lock’s top talents.</p></div>
+
+<div class="volume"><h3>Volume 36</h3><p>Isagi stands on the brink of becoming a world-class striker, facing his toughest challenges yet.</p></div>
+
+<div class="volume"><h3>Volume 37</h3><p>The story reaches a critical phase, emphasizing that true victory belongs to the striker who can dominate the world through ego, vision, and unshakable belief.</p></div>
+
+</div>
 
 </body>
 </html>
